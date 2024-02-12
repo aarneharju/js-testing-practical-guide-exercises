@@ -1,4 +1,4 @@
-import { it, expect } from "Vitest"; // "it" cculd as well be "test", both work the same
+import { it, expect } from "Vitest"; // "it" could as well be "test", both work the same
 import { add } from "./math";
 
 
