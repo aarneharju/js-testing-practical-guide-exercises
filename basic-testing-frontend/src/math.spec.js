@@ -43,7 +43,7 @@ it("should throw an error if no value is passed to the function", () => {
     const resultFunction = () => {
         add(); // Because the add() function is inside the resultFunction, it isn't called immediately and therefore doesn't yet throw an error
     }
-    expect(resultFunction).toThrow(); // We call the add() -function here and expect it to throw an error and capture it then 
+    expect(resultFunction).toThrow(/is not iterable/); // We call the add() -function here and expect it to throw an error and capture it then 
 })
 
 // The add() function was designed to take arrays as input, not several numbers
@@ -55,5 +55,5 @@ it("should throw an error if provided with multiple arguments instead of an arra
         add(num1, num2);
     }
 
-    expect(resultFunction).toThrow();
+    expect(resultFunction).toThrow(/is not iterable/);
 })
