@@ -37,4 +37,11 @@ it("should yield 0 if an empty array is provided as input", () => {
 
     expect(result).toBe(0);
 })
+
+it("should throw an error if no value is passed to the function", () => {
+    // We could use try - catch here but the way below is a bit simpler
+    const resultFunction = () => {
+        add(); // Because the add() method call is inside the resultFunction, it isn't called immediately and therefore doesn't yet throw an error
+    }
+    expect(resultFunction).toThrow(); // We call the add() -function here and expect it to throw an error and capture it then 
 })
