@@ -7,6 +7,7 @@ it("should return a number if a string that can be converted to a number was giv
     const result = transformToNumber(input);
 
     expect(result).toBeTypeOf("number");
+    expect(result).toBe(2);
 })
 
 it("should return NaN if a string that can't be converted to a number was given as input", () => {
