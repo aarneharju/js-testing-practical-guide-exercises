@@ -3,6 +3,13 @@ import { add } from "./math";
 
 
 it("should add together all number values in an array", () => {
-    const result = add([1, 2, 3]);
-    expect(result).toBe(6);
+    // Arrange
+    const numbers = [1, 2];
+    
+    // Act
+    const result = add(numbers);
+
+    // Assert
+    const expectedResult = numbers.reduce((total, currentNumber) => currentNumber + total, 0);
+    expect(result).toBe(expectedResult);
 })
