@@ -41,7 +41,19 @@ it("should yield 0 if an empty array is provided as input", () => {
 it("should throw an error if no value is passed to the function", () => {
     // We could use try - catch here but the way below is a bit simpler
     const resultFunction = () => {
-        add(); // Because the add() method call is inside the resultFunction, it isn't called immediately and therefore doesn't yet throw an error
+        add(); // Because the add() function is inside the resultFunction, it isn't called immediately and therefore doesn't yet throw an error
     }
     expect(resultFunction).toThrow(); // We call the add() -function here and expect it to throw an error and capture it then 
+})
+
+// The add() function was designed to take arrays as input, not several numbers
+it("should throw an error if provided with multiple arguments instead of an array", () => {
+    const num1 = 1;
+    const num2 = 2;
+
+    const resultFunction = () => {
+        add(num1, num2);
+    }
+
+    expect(resultFunction).toThrow();
 })
