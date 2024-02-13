@@ -32,7 +32,21 @@ describe("validateStringNotEmpty()", () => {
         }
     
         expect(testFunction).toThrow(/Invalid input - must not be empty./);
-    })    
+    })
+
+    it("should throw an error if input is anythin other than a string", () => {
+        const inputNumber = 4;
+        const inputObject = {};
+        const inputBoolean = true;
+
+        const testFunctionForNumber = () => validateStringNotEmpty(inputNumber);
+        const testFunctionForObject = () => validateStringNotEmpty(inputObject);
+        const testFunctionForBoolean = () => validateStringNotEmpty(inputBoolean);
+
+        expect(testFunctionForNumber).toThrow();
+        expect(testFunctionForObject).toThrow();
+        expect(testFunctionForBoolean).toThrow();
+    })
 })
 
 describe("validateNumber()", () => {
