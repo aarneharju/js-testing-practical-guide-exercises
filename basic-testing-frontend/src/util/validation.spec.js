@@ -1,5 +1,5 @@
-import { it, expect, describe } from "Vitest";
-import { validateStringNotEmpty, validateNumber } from "./validation";
+import { it, expect, describe, afterAll, vi } from "vitest";
+import { validateStringNotEmpty, validateNumber, validateInput, validateAllInputs } from "./validation";
 
 describe("validateStringNotEmpty()", () => {
     describe("You can also nest describe blocks inside each other like this", () => {
@@ -80,3 +80,29 @@ describe("validateNumber()", () => {
         expect(testFunction).toThrow(/Invalid number input./)
     })    
 })
+
+describe("validateAllInputs()", () => {
+    it("should return the same array that is given as input in string format, but converted to number format", () => {
+        const input = ['1', '2'];
+
+        const result = validateAllInputs(input);
+
+        expect(result[0]).toBeTypeOf("number");
+        expect(result).toEqual([1, 2]);
+    })
+})
+
+describe('should mock console.log', () => {
+    const consoleMock = vi.spyOn(console, 'log').mockImplementation(() => undefined);
+    // const consoleSpy = vi.spyOn(console, 'log');
+  
+    afterAll(() => {
+      consoleMock.mockReset();
+    });
+  
+    it('should log `sample output`', () => {
+      console.log('sample output');
+      expect(consoleMock).toHaveBeenCalledOnce();
+      expect(consoleMock).toHaveBeenLastCalledWith('sample output');
+    });
+});
