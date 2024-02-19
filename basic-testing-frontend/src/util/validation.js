@@ -1,7 +1,7 @@
 import { transformToNumber } from './numbers.js';
 
-export function validateStringNotEmpty(value) {
-  if (value.trim().length === 0) {
+export function validateStringNotEmpty(input) {
+  if (input.trim().length === 0) {
     throw new Error('Invalid input - must not be empty.');
   }
 }
@@ -12,9 +12,9 @@ export function validateNumber(number) {
   }
 }
 
-export function validateInput(numberInput) {
-  validateStringNotEmpty(numberInput);
-  const number = transformToNumber(numberInput);
+export function validateInput(input) {
+  validateStringNotEmpty(input);
+  const number = transformToNumber(input);
   validateNumber(number);
   return number;
 }
