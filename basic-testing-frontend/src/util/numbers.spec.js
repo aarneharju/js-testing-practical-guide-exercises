@@ -1,4 +1,4 @@
-import { it, expect, describe } from "Vitest";
+import { it, expect, describe } from "vitest";
 import { transformToNumber } from "./numbers";
 
 describe("transformToNumber()", () => {
