@@ -5,12 +5,13 @@
   "main": "index.js",
   "scripts": {
     "start": "http-server -c-1",
-    "test": "vitest --run"
+    "test": "vitest --run --reporter verbose --coverage"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "c8": "^9.1.0",
     "http-server": "^14.1.0"
   },
   "devDependencies": {
