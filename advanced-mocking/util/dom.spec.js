@@ -13,9 +13,13 @@ document.write(htmlDocumentContent);
 vi.stubGlobal("document", document);
 
 describe("showError()", () => {
-    it("should show error message on the webpage", () => {
+    it("should add an error paragraph to the id='errors' element", () => {
         const testMessage = "Error message";
 
         showError(testMessage);
+
+        const errorMessageElement = document.querySelector("#errors > p");
+
+        expect(errorMessageElement.innerHTML).toBe(testMessage);
     })
 })
